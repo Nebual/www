@@ -1,0 +1,8 @@
+body {
+	background-color: #eee;
+	margin: 20px;
+}
+
+a.list-group-item {
+	color: #428bca;
+}
