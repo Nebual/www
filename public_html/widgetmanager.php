@@ -18,7 +18,7 @@ class WidgetManager {
 	private static $categories = null;
 	
 	private static function dbConnect(){
-		if($LinkID){
+		if(self::$LinkID){
 			return;
 		}
 		
