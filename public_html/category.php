@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Wally's Widget World - Category A</title>
+<title>Wally&#39;s Widget World - Category A</title>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="common.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -16,7 +16,7 @@
 </style>
 </head>
 <body>
-<h1>Wally's Widget World</h1>
+<h1>Wally&#39;s Widget World</h1>
 <ol class="breadcrumb">
   <li><a href="index.php">Home</a></li>
   <li class="active"><a href="category.php?id=1">Category A</a></li>
