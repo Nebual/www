@@ -1,3 +1,7 @@
+<?PHP
+
+// Putting sections in heredoc chunks for now
+$header = <<<EOT
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +16,10 @@
 }
 </style>
 </head>
+
+EOT;
+
+$body = <<<EOT
 <body>
 <h1>Wally&#39;s Widget World</h1>
 <ol class="breadcrumb">
@@ -24,3 +32,8 @@ Man have we ever got Widget Categories!
 </div>
 </body>
 </html>
+EOT;
+
+print $header . $body;
+
+?>
