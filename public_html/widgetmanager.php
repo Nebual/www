@@ -75,7 +75,7 @@ class WidgetManager {
 		$catID = (int) $catID;
 		$query = "SELECT * FROM widget WHERE categoryID = $catID;";
 		$result = mysql_query( $query, self::$LinkID);
-		echo mysql_error(self::$LinkID
+		echo mysql_error(self::$LinkID);
 				
 		$cw = array();
 		while ($row=mysql_fetch_row($result)) {
