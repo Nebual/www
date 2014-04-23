@@ -90,7 +90,7 @@ class WidgetManager {
 		$widID = (int) $widID;
 		$query = "SELECT * FROM widget WHERE widgetID = $widID;";
 		$result = mysql_query( $query, self::$LinkID);
-		echo mysql_error(self::$LinkID
+		echo mysql_error(self::$LinkID);
 				
 		$row=mysql_fetch_row($result);
 		
