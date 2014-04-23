@@ -18,6 +18,10 @@ class WidgetManager {
 	private static $categories = null;
 	
 	private static function dbConnect(){
+		if($LinkID){
+			return;
+		}
+		
 		// Connect to the MySQL server.
 		self::$LinkID = mysql_connect("localhost", "c199grp01", "hunter2");
 
@@ -66,22 +70,34 @@ class WidgetManager {
 	
 	//returns an unordered array of widgets by index that fall under a category
 	public static function getFromCategory($catID) {
+		self::dbConnect();
+		
+		$catID = (int) $catID;
+		$query = "SELECT * FROM widget WHERE categoryID = $catID;";
+		$result = mysql_query( $query, self::$LinkID);
+		echo mysql_error(self::$LinkID
+				
 		$cw = array();
-		foreach (self::$widgets as $w) {
-			if ($w[1] == $catID) {
-				array_push($cw,$w);
-			}
+		while ($row=mysql_fetch_row($result)) {
+			array_push($cw, $row);
 		}
 		return $cw;
 	}
 	
 	//returns an array representation of the widget with widID
 	public static function getWidget($widID){
-		foreach (self::$widgets as $w) {
-			if ($w[0] == $widID) {
-				return $w;
-			}
+		self::dbConnect();
+		$widID = (int) $widID;
+		$query = "SELECT * FROM widget WHERE widgetID = $widID;";
+		$result = mysql_query( $query, self::$LinkID);
+		echo mysql_error(self::$LinkID
+				
+		$row=mysql_fetch_row($result);
+		
+		if($row){
+			return $row;
 		}
+		return null;
 	}
 }
 ?>
