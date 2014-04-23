@@ -19,6 +19,7 @@ a.list-group-item {
 .product {
 	width: 300px;
 	display: inline-block;
+}
 
 #productinfo {
 	margin: 20px;
