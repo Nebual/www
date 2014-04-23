@@ -1,6 +1,7 @@
 <?php
 class WidgetManager {
-
+	private static $LinkID = null;
+	
 	//list of widgets so that we only need to load them once per page
 	private static $widgets = array(
 				array( "WidgetId", "CategoryID", "widgetName", "price", "weight", "size")
@@ -15,18 +16,42 @@ class WidgetManager {
 			);
 			
 	private static $categories = null;
+	
+	private static function dbConnect(){
+		// Connect to the MySQL server.
+		self::$LinkID = mysql_connect("localhost", "c199grp01", "hunter2");
+
+		// Die if no connect
+		if (!self::$LinkID) {
+		  die('Could not connect: ' . mysql_error());
+		}
+
+		// Choose the DB
+		mysql_select_db("c199grp01", self::$LinkID);	
+	}		
 
 	//returns an array of categories where the key is the category number
 	public static function getCategories($forceReload=false) {
 		if (!self::$categories || $forceReload) {
 			self::loadCategories();
 		}
-			return self::$categories;
+		return self::$categories;
 	}
 	
 	//load the categories from somewhere
 	private static function loadCategories(){
-		self::$categories = array("Apples", "Orangutans", "Waffles");
+		self::dbConnect();
+				
+		$cats = array();
+		$query = "SELECT * FROM category;";
+		$result = mysql_query( $query, self::$LinkID);
+		echo mysql_error(self::$LinkID);
+			
+		while ($row=mysql_fetch_row($result)) {
+			$cats[$row[0]] = $row[1];
+		}
+					
+		self::$categories = $cats;
 	}
 	
 	//returns the name of the category with $catID
