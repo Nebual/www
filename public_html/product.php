@@ -1,10 +1,13 @@
 <?php 
 include("widgetmanager.php");
+include("../auth.inc");
 
 $widID = 0;
 if ( isset($_GET["id"]) ){
 	$widID = $_GET["id"];
 }
+
+WidgetManager::dbConnect($dbName, $dbPass);
 $widget = WidgetManager::getWidget($widID);
 $catName = WidgetManager::getCategoryName($widget["categoryID"]);
 ?>
