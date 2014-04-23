@@ -5,15 +5,6 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="common.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<style>
-#products {
-	margin: 20px;
-}
-.product {
-	width: 300px;
-	display: inline-block;
-}
-</style>
 </head>
 <body>
 <h1>Wally&#39;s Widget World</h1>

@@ -6,3 +6,26 @@ body {
 a.list-group-item {
 	color: #428bca;
 }
+
+#categories {
+	margin: 20px;
+	width: 800px;
+}
+
+#products {
+	margin: 20px;
+}
+
+.product {
+	width: 300px;
+	display: inline-block;
+
+#productinfo {
+	margin: 20px;
+	width: 800px;
+	background-color: #fff;
+}
+
+#productinfo th {
+	width: 200px;
+}
