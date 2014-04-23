@@ -78,7 +78,7 @@ class WidgetManager {
 		echo mysql_error(self::$LinkID);
 				
 		$cw = array();
-		while ($row=mysql_fetch_row($result)) {
+		while ($row=mysql_fetch_assoc($result)) {
 			array_push($cw, $row);
 		}
 		return $cw;
@@ -92,7 +92,7 @@ class WidgetManager {
 		$result = mysql_query( $query, self::$LinkID);
 		echo mysql_error(self::$LinkID);
 				
-		$row=mysql_fetch_row($result);
+		$row=mysql_fetch_assoc($result);
 		
 		if($row){
 			return $row;

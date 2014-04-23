@@ -27,7 +27,7 @@ Okay so you asked me what sort of products are in <?php echo $catName; ?>. Well,
 <div class="list-inline" id="products">
 <?php
 	foreach ($widgets as $w){
-		echo '<a class="product list-group-item" href="product.php?id=' . $w[0] . '">' . $w[2] . '</a>';
+		echo '<a class="product list-group-item" href="product.php?id=' . $w["widgetID"] . '">' . $w["widgetName"] . '</a>';
 	}
 ?>
 </div>
