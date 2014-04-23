@@ -7,9 +7,6 @@ if ( isset($_GET["id"]) ){
 }
 $widget = WidgetManager::getWidget($widID);
 $catName = WidgetManager::getCategoryName($widget[1]);
-
-
-
 ?>
 <!DOCTYPE html>
 <html>

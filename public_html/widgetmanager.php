@@ -24,6 +24,7 @@ class WidgetManager {
 			return self::$categories;
 	}
 	
+	//load the categories from somewhere
 	private static function loadCategories(){
 		self::$categories = array("Apples", "Orangutans", "Waffles");
 	}
@@ -48,6 +49,8 @@ class WidgetManager {
 		}
 		return $cw;
 	}
+	
+	//returns an array representation of the widget with widID
 	public static function getWidget($widID){
 		foreach (self::$widgets as $w) {
 			if ($w[0] == $widID) {

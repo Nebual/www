@@ -30,12 +30,6 @@ Okay so you asked me what sort of products are in <?php echo $catName; ?>. Well,
 		echo '<a class="product list-group-item" href="product.php?id=' . $w[0] . '">' . $w[2] . '</a>';
 	}
 ?>
-	<!--<a class="product list-group-item" href="product.php?id=1">Product A</a>
-	<a class="product list-group-item" href="product.php?id=2">Product B</a>
-	<a class="product list-group-item" href="product.php?id=3">Product C</a>
-	<a class="product list-group-item" href="product.php?id=4">Product D</a>
-	<a class="product list-group-item" href="product.php?id=5">Product E</a>
-	<a class="product list-group-item" href="product.php?id=6">Product F</a>-->
 </div>
 Thats most of them at least.
 </body>
