@@ -1,4 +1,5 @@
 <?php
+include("../auth.inc");
 class WidgetManager {
 	private static $LinkID = null;
 		
@@ -31,8 +32,6 @@ class WidgetManager {
 	
 	//load the categories from somewhere
 	private static function loadCategories(){
-		//self::dbConnect();
-				
 		$cats = array();
 		$query = "SELECT * FROM category;";
 		$result = mysql_query( $query, self::$LinkID);
@@ -56,9 +55,7 @@ class WidgetManager {
 	}
 	
 	//returns an unordered array of widgets by index that fall under a category
-	public static function getFromCategory($catID) {
-		//self::dbConnect();
-		
+	public static function getFromCategory($catID) {		
 		$catID = (int) $catID;
 		$query = "SELECT * FROM widget WHERE categoryID = $catID;";
 		$result = mysql_query( $query, self::$LinkID);
@@ -73,7 +70,6 @@ class WidgetManager {
 	
 	//returns an array representation of the widget with widID
 	public static function getWidget($widID){
-		//self::dbConnect();
 		$widID = (int) $widID;
 		$query = "SELECT * FROM widget WHERE widgetID = $widID;";
 		$result = mysql_query( $query, self::$LinkID);
@@ -87,4 +83,5 @@ class WidgetManager {
 		return null;
 	}
 }
+WidgetManager::dbConnect($dbName, $dbPass);
 ?>

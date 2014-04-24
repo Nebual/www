@@ -1,6 +1,5 @@
 <?PHP
 include("widgetmanager.php");
-include("../auth.inc");
 
 // Putting sections in heredoc chunks for now
 $header = <<<EOT
@@ -25,7 +24,6 @@ Man have we ever got Widget Categories!
 <div class="list-group" id="categories">
 EOT;
 
-WidgetManager::dbConnect($dbName, $dbPass);
 //load the categories from the database
 $categories = WidgetManager::getCategories();
 
