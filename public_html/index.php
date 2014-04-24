@@ -16,7 +16,7 @@ EOT;
 
 $body = <<<EOT
 <body>
-<h1>Wally&apos;s Widget World</h1>
+<h1>Wally&apos;s Widget World YAY TEST COMMIT 3</h1>
 <ol class="breadcrumb">
   <li class="active"><a href="index.php">Home</a></li>
 </ol>
