@@ -12,9 +12,23 @@ a.list-group-item {
 	width: 800px;
 }
 
+#head1 {
+	font-size:2em;
+	color:#000;
+	margin-left:25px;
+}
+#logo {
+	float:left;
+}
+#navbar {
+	width:100%;
+	height:150px;
+}
+
 #products {
 	margin: 20px;
 }
+
 
 .product {
 	width: 300px;

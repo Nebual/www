@@ -1,5 +1,6 @@
 <?php 
 include("widgetmanager.php");
+include("navbar.php");
 
 $widID = 0;
 if ( isset($_GET["id"]) ){
@@ -9,6 +10,7 @@ if ( isset($_GET["id"]) ){
 $widget = WidgetManager::getWidget($widID);
 $catName = WidgetManager::getCategoryName($widget["categoryID"]);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,13 +19,9 @@ $catName = WidgetManager::getCategoryName($widget["categoryID"]);
 <link rel="stylesheet" href="common.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
+
 <body>
-<h1>Wally&apos;s Widget World</h1>
-<ol class="breadcrumb">
-  <li><a href="index.php">Home</a></li>
-  <li><a href="category.php?id=<?php echo $widget["categoryID"]; ?>"><?php echo $catName; ?></a></li>
-  <li class="active"><a href="product.php?id=<?php echo $widget["widgetID"]; ?>"><?php echo $widget["widgetName"]; ?></a></li>
-</ol>
+<?php print_navbar("product_page"); ?>
 What I gotta tell you about a product too? Okay well heres what we&apos;ve parsed so far:
 <table class="table table-bordered" id="productinfo">
 	<tr><th>Model</th><td><?php echo $widget["widgetName"]; ?></td></tr>
