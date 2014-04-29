@@ -18,6 +18,7 @@ $catName = WidgetManager::getCategoryName($widget["categoryID"]);
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="common.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="common.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@ $catName = WidgetManager::getCategoryName($widget["categoryID"]);
 What I gotta tell you about a product too? Okay well heres what we&apos;ve parsed so far:
 <table class="table table-bordered" id="productinfo">
 	<tr><th>Model</th><td><?php echo $widget["widgetName"]; ?></td></tr>
-	<tr><th>Price</th><td><?php echo "$".number_format($widget["price"],2,".",","); ?></td></tr>
+	<tr><th>Price</th><td><?php echo "$".number_format($widget["price"],2,".",","); ?><span class="addtocart" widgetid="<?php echo $widID;?>">Add To Cart</span></td></tr>
 </table>
 That should settle most questions.
 </body>

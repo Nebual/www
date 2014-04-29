@@ -18,6 +18,7 @@ $widgets = WidgetManager::getFromCategory($catID);
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="common.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="common.js"></script>
 </head>
 <body>
 <?php print_navbar("category_page"); ?>
@@ -26,7 +27,7 @@ Okay so you asked me what sort of products are in <?php echo $catName; ?>. Well,
 <div class="list-inline" id="products">
 <?php
 	foreach ($widgets as $w){
-		echo '<a class="product list-group-item" href="product.php?id=' . $w["widgetID"] . '">' . $w["widgetName"] . '</a>';
+		echo '<a class="product list-group-item" href="product.php?id=' . $w["widgetID"] . '">' . $w["widgetName"] . '<span class="addtocart" widgetid="'.$w['widgetID'].'">Add To Cart</span></a>';
 	}
 ?>
 </div>
