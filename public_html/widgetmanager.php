@@ -2,8 +2,8 @@
 include("../auth.inc");
 class WidgetManager {
 	private static $LinkID = null;
-		
 	private static $categories = null;
+	private static $siteName = "";
 	
 	public static function dbConnect($dbName, $dbPass){
 		if(self::$LinkID){
@@ -81,6 +81,43 @@ class WidgetManager {
 			return $row;
 		}
 		return null;
+	}
+	
+	public static function getSiteName(){
+		if (self::$siteName != "") {
+			return self::$siteName;
+		}
+		//set the name of the site owner
+		$owner = mt_rand(0,1) ? "Wally&apos;s" : "Willy&apos;s";
+		//grab an adjective for possible use
+		$result = mysql_query( 'SELECT word FROM dubyawords WHERE type="adjective" ORDER BY RAND() LIMIT 1;', self::$LinkID);
+		$adj = mysql_fetch_row($result);
+		$adj = ucwords($adj[0]);
+		//grab a noun
+		$result = mysql_query( 'SELECT word FROM dubyawords WHERE type="noun" ORDER BY RAND() LIMIT 1;', self::$LinkID);
+		$noun = mysql_fetch_row($result);
+		$noun = ucwords($noun[0]);
+		//grab a second noun if we don't use the adjective
+		$result = mysql_query( 'SELECT word FROM dubyawords WHERE type="noun" ORDER BY RAND() LIMIT 1;', self::$LinkID);
+		$noun2 = mysql_fetch_row($result);
+		$noun2 = ucwords($noun2[0]);
+		//concat it all together randomly
+		$n2len = strlen($noun2);
+		//make sure that the noun that could be a plural probably looks right
+		$nounplur = $noun2;
+		if ($noun2[$n2len-1] != "s" && $noun2[$n2len-1] != "y") {
+			$nounplur .= "s";
+		}
+		$tname = $owner." ";
+		if ( mt_rand(0,1) ) {
+			$tname .= ( mt_rand(0,1) ? ($adj." Widgets") : ("Widget ".$noun) );
+		} else {
+			$tname .= ( mt_rand(0,1) ? ($adj." ".$nounplur) : ($noun." ".$noun2) );
+		}
+		//concat some more
+		self::$siteName = mt_rand(0,1) ? $tname : $owner . " Widget World";
+		//title assembled
+		return self::$siteName;
 	}
 }
 WidgetManager::dbConnect($dbName, $dbPass);
