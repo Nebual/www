@@ -8,6 +8,7 @@ function print_navbar($calling_page){
 	print "<img src='logo.png' style='{position:absolute; left:0px;}'>";
 	//print "<img src='http://".str_replace(" ","",substr(WidgetManager::getSiteName(), 13)).".jpg.to/' style='width: auto; height: 100px;'>";
 	print "<span id='head1'>".WidgetManager::getSiteName()."</span>\n";
+	print "<a href='shoppingcart.php'>Shopping Cart</a>";
 	print_breadcrumb($calling_page);
 	print "</div>\n";
 }
