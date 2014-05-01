@@ -19,9 +19,13 @@ $widgets = getCartContents();
 You got all dese things:
 <div class="list-inline" id="products">
 <?php
+if($widgets == -1){
+	echo 'Nothing to display.';
+}else{
 	foreach ($widgets as $w){
 		echo '<div class="product list-group-item" href="product.php?id=' . $w["widgetID"] . '">' . $w["widgetName"] . ' (' . $w["quantity"] . ') </div>';
 	}
+}
 ?>
 </div>
 Thats most of them at least.

@@ -12,6 +12,10 @@ if(isset($_GET["id"])){
 }
 
 function getCartContents(){
+	if(! isset($_SESSION["cart"])){
+		return -1;
+	}
+	
 	$items = $_SESSION["cart"];
 	$widgets = array();
 	foreach($items as $id=>$quantity){
