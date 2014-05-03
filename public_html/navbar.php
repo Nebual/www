@@ -9,6 +9,7 @@ function print_navbar($calling_page){
 	//print "<img src='http://".str_replace(" ","",substr(WidgetManager::getSiteName(), 13)).".jpg.to/' style='width: auto; height: 100px;'>";
 	print "<span id='head1'>".WidgetManager::getSiteName()."</span>\n";
 	print "<a class='button' href='shoppingcart.php'>Shopping Cart</a>";
+	print "<div style='font-style: italic; margin: -5px 5px 5px 5px;'>Brand name widgets at wholesale prices</div>";
 	print_breadcrumb($calling_page);
 	print "</div>\n";
 }

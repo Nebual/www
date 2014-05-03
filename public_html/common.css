@@ -7,6 +7,13 @@ a.list-group-item {
 	color: #428bca;
 }
 
+.breadcrumb {
+	margin-bottom: 0;
+}
+.breadcrumb>li+li:before {
+	content: "\3E";
+}
+
 #categories {
 	margin: 20px;
 	width: 800px;
