@@ -72,10 +72,10 @@ class WidgetManager {
 	public static function getWidget($widID){
 		$widID = (int) $widID;
 		$query = "SELECT * FROM widget WHERE widgetID = $widID;";
-		$result = mysql_query( $query, self::$LinkID);
+		$result = mysql_query($query, self::$LinkID);
 		echo mysql_error(self::$LinkID);
 				
-		$row=mysql_fetch_assoc($result);
+		$row = mysql_fetch_assoc($result);
 		
 		if($row){
 			return $row;

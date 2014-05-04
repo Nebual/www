@@ -23,20 +23,7 @@ $widgets = getCartContents();
 
 <?php print_navbar("shoppingcart_page"); ?>
 
-Your cart's contents:
-<div class="list-inline" id="products">
-<?php
-if($widgets == -1){
-	echo 'Nothing to display.';
-}else{
-	foreach ($widgets as $w){
-		echo '<div class="product list-group-item" href="product.php?id=' . $w["widgetID"] . '">' . $w["widgetName"] . ' (' . $w["quantity"] . ')';
-		echo '<span class="button removefromcart" widgetid="' . $w["widgetID"] . '">Remove</span></div>';
-	}
-	echo '<br><a class="button" href="order.php">Place Order</a>';
-}
-?>
-</div>
+TODO: make this into an order page...
+
 </body>
 </html>
-
