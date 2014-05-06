@@ -24,19 +24,33 @@ $widgets = getCartContents();
 <?php print_navbar("shoppingcart_page"); ?>
 
 Your cart's contents:
-<div class="list-inline" id="products">
 <?php
 if($widgets == -1){
 	echo 'Nothing to display.';
-}else{
+}else{?>
+<table class="table" id="cart">
+	<thead>
+		<th style="width: 100%;">Product Name</th>
+		<th>Price</th>
+		<th>Quantity</th>
+		<th></th>
+		<th></th>
+	</thead>
+	<?php
 	foreach ($widgets as $w){
-		echo '<div class="product list-group-item" href="product.php?id=' . $w["widgetID"] . '">' . $w["widgetName"] . ' (' . $w["quantity"] . ')';
-		echo '<span class="button removefromcart" widgetid="' . $w["widgetID"] . '">Remove</span></div>';
-	}
-	echo '<br><a class="button" href="order.php">Place Order</a>';
+		echo "<tr>\n" .
+			"<td><a href='product.php?id=" . $w['widgetID'] . "'>" . $w['widgetName'] . "</a></td>\n" .
+			"<td>" . "$5000" . "</td>\n" .
+			"<td><input class='quantity' type='number' widgetid='".$w['widgetID']."' value='" . $w['quantity'] . "'/></td>\n" .
+			"<td><span class='button updatecart' widgetid='" . $w['widgetID'] . "'>Update</span></td>\n" .
+			"<td><span class='button removefromcart' widgetid='" . $w['widgetID'] . "'>Remove</span></td>\n" .
+			"</tr>\n";
+	}?>
+	</table>
+	<br><a class="button" href="order.php">Place Order</a>
+<?php
 }
 ?>
-</div>
 </body>
 </html>
 

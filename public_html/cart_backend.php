@@ -19,16 +19,16 @@ if(isset($_GET["action"])){
 		$item = $_GET["id"];
 		$widget = WidgetManager::getWidget($item);
 		//TODO: adjust the quantity of widgets in cart and on pages when adding
-		$count =  1;
+		$count =  isset($_GET["value"]) ? $_GET["value"] : 1;
 
 		// If the widget exists already in the user's cart
 		if(isset($_SESSION["cart"][$item])){
-			$_SESSION["cart"][$item] += 1;
+			$_SESSION["cart"][$item] += $count;
 		}else{
-			$_SESSION["cart"][$item] = 1;
+			$_SESSION["cart"][$item] = $count;
 		}
 		// The message returned to the common.js AJAX success event handler
-		print("Successfully added a " . $widget["widgetName"] . " to your cart!");
+		print("Successfully added $count " . $widget["widgetName"] . " to your cart!");
 	}
 	elseif(isset($_GET["id"]) && $action == "remove"){
 
@@ -39,6 +39,16 @@ if(isset($_GET["action"])){
 		if(isset($_SESSION["cart"][$item])){
 			unset($_SESSION["cart"][$item]);
 		}
+	}
+	elseif(isset($_GET["id"]) && $action == "quantity" && isset($_GET["value"])){
+
+		$item = $_GET["id"];
+		if(isset($_SESSION["cart"][$item])){
+			$_SESSION["cart"][$item] = $_GET["value"];
+		}
+	}
+	else {
+		print("Unknown action ".$action);
 	}
 }
 
