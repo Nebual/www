@@ -123,3 +123,7 @@ a.list-group-item {
 input.quantity {
 	width: 3em;
 }
+
+input:disabled {
+	background-color: rgb(213, 213, 213);
+}

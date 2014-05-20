@@ -14,6 +14,7 @@ function print_breadcrumb($calling_page){
 	$bc_prod = "<li><a href='product.php?id=" . $widget["widgetID"] .
 	       	"'>" . $widget["widgetName"] . "</a></li>\n";
 	$bc_cart = "<li><a href='shoppingcart.php'>Shopping Cart</a></li>";
+	$bc_checkout = "<li><a href='order.php'>Billing Information</a></li>";
 
 	/* Append breadcrumb strings into the printed HTML string:
 	 * If the index calls this, return just the Home link.
@@ -31,6 +32,9 @@ function print_breadcrumb($calling_page){
 	}
 	elseif ($calling_page == "shoppingcart_page"){
 		$bc_html .= $bc_index . $bc_cart;
+	}
+	elseif ($calling_page == "checkout_page") {
+		$bc_html .= $bc_index . $bc_cart . $bc_checkout;
 	}
 	else {
 		print "Error: invalid parameter for breadcrumb.php(print_breadcrumb())";
