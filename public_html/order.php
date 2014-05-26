@@ -87,7 +87,6 @@ function order_validate(){
 		// Start basic validation checks
 		if (!isValidEmail(chk_email)){
 			alert("Please enter a valid email address.");
-			alert("entered:" + chk_email);
 			return false;
 		}
 
