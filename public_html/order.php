@@ -118,41 +118,44 @@ function order_validate(){
 <body>
 <?php print_navbar("checkout_page"); ?>
 
-<form class="form-horizontal">
-	<div class="form-group">
-		<label class="col-md-2 control-label">Contact Phone Number</label>
-		<input type="tel" class="col-md-4" name="phone" placeholder="250 727 1234">
-	</div>
-	<div class="form-group">
-		<label class="col-md-2 control-label">Email Address</label>
-		<input type="email" class="col-md-4" name="email" placeholder="jfraser@gmail.com">
-	</div>
+<form class="form-horizontal orderform">
+	<fieldset id="billing">
+		<legend>Contact Information</legend>
+		<div class="form-group">
+			<label class="col-xs-3 control-label">Contact Phone Number</label>
+			<input type="tel" class="col-xs-9" name="phone" placeholder="250 555 1234">
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label">Email Address</label>
+			<input type="email" class="col-xs-9" name="email" placeholder="client@gmail.com">
+		</div>
+	</fieldset>
 
 	<fieldset id="billing">
 		<legend>Billing Information</legend>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Name</label>
-			<input type="text" class="col-md-4" name="b_name" placeholder="Josh Fraser">
+			<label class="col-xs-3 control-label">Name</label>
+			<input type="text" class="col-xs-9" name="b_name" placeholder="Josh Fraser">
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Street Address</label>
-			<input type="text" class="col-md-4" name="b_address" placeholder="1 Hohoho Road">
+			<label class="col-xs-3 control-label">Street Address</label>
+			<input type="text" class="col-xs-9" name="b_address" placeholder="1 Hohoho Road">
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Country</label>
-			<select class="col-md-1" name="b_country"><option value="canada">Canada</option></select>
+			<label class="col-xs-3 control-label">Country</label>
+			<select class="col-xs-2" name="b_country"><option value="canada">Canada</option></select>
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Postal Code</label>
-			<input type="text" class="col-md-4" name="b_postalcode" placeholder="V9A1A1">
+			<label class="col-xs-3 control-label">Postal Code</label>
+			<input type="text" class="col-xs-9" name="b_postalcode" placeholder="V9A1A1">
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">City</label>
-			<input type="text" class="col-md-4" name="b_city" placeholder="Victoria">
+			<label class="col-xs-3 control-label">City</label>
+			<input type="text" class="col-xs-9" name="b_city" placeholder="Victoria">
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Province</label>
-			<select class="col-md-1" name="b_province">
+			<label class="col-xs-3 control-label">Province</label>
+			<select class="col-xs-2" name="b_province">
 				<option value="alberta">Alberta</option>
 				<option value="BC" selected>BC</option>
 			</select>
@@ -160,35 +163,35 @@ function order_validate(){
 	</fieldset>
 
 	<div class="form-group">
-		<div class="col-md-2"></div>
+		<div class="col-xs-3"></div>
 		<input type="checkbox" name="shipping_same" onclick="$('#shipping').attr('disabled', this.checked);" checked>Shipping Information same as Billing</input>
 	</div>
 	
 	<fieldset id="shipping" disabled>
 		<legend>Shipping Information</legend>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Name</label>
-			<input type="text" class="col-md-4" name="s_name" placeholder="Josh Fraser">
+			<label class="col-xs-3 control-label">Name</label>
+			<input type="text" class="col-xs-9" name="s_name" placeholder="Josh Fraser">
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Street Address</label>
-			<input type="text" class="col-md-4" name="s_address" placeholder="1 Hohoho Road">
+			<label class="col-xs-3 control-label">Street Address</label>
+			<input type="text" class="col-xs-9" name="s_address" placeholder="1 Hohoho Road">
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Country</label>
-			<select class="col-md-1" name="s_country"><option value="canada">Canada</option></select>
+			<label class="col-xs-3 control-label">Country</label>
+			<select class="col-xs-2" name="s_country"><option value="canada">Canada</option></select>
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Postal Code</label>
-			<input type="text" class="col-md-4" name="s_postalcode" placeholder="V9A1A1">
+			<label class="col-xs-3 control-label">Postal Code</label>
+			<input type="text" class="col-xs-9" name="s_postalcode" placeholder="V9A1A1">
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">City</label>
-			<input type="text" class="col-md-4" name="s_city" placeholder="Victoria">
+			<label class="col-xs-3 control-label">City</label>
+			<input type="text" class="col-xs-9" name="s_city" placeholder="Victoria">
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Province</label>
-			<select class="col-md-1" name="s_province">
+			<label class="col-xs-3 control-label">Province</label>
+			<select class="col-xs-2" name="s_province">
 				<option value="alberta">Alberta</option>
 				<option value="BC" selected>BC</option>
 			</select>

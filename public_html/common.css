@@ -127,3 +127,9 @@ input.quantity {
 input:disabled {
 	background-color: rgb(213, 213, 213);
 }
+
+.orderform {
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    padding: 20px 30px 20px 20px;
+}
