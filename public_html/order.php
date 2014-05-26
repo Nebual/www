@@ -198,7 +198,7 @@ function order_validate(){
 		</div>
 	</fieldset>
 
-	<button type="submit" onclick="order_validate()">Submit</button>
+	<button type="submit" onclick="return order_validate();">Submit</button>
 </form>
 
 </body>
