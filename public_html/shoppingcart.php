@@ -40,7 +40,7 @@ if($widgets == -1){
 	foreach ($widgets as $w){
 		echo "<tr>\n" .
 			"<td><a href='product.php?id=" . $w['widgetID'] . "'>" . $w['widgetName'] . "</a></td>\n" .
-			"<td>" . "$5000" . "</td>\n" .
+			"<td>" . $w["price"] . "</td>\n" .
 			"<td><input class='quantity' type='number' widgetid='".$w['widgetID']."' value='" . $w['quantity'] . "'/></td>\n" .
 			"<td><span class='button updatecart' widgetid='" . $w['widgetID'] . "'>Update</span></td>\n" .
 			"<td><span class='button removefromcart' widgetid='" . $w['widgetID'] . "'>Remove</span></td>\n" .

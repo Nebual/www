@@ -28,24 +28,53 @@ if(isset($_GET["action"])){
 			$_SESSION["cart"][$item] = $count;
 		}
 		// The message returned to the common.js AJAX success event handler
+		
+		$price = $widget["price"];
+		
+		if(isset($_SESSION["total"])){
+			$_SESSION["total"] += $price;
+		}else{
+			$_SESSION["total"] = $price;	
+		}
+		
 		print("Successfully added $count " . $widget["widgetName"] . " to your cart!");
 	}
 	elseif(isset($_GET["id"]) && $action == "remove"){
 
 		$item = $_GET["id"];
+		$widget = WidgetManager::getWidget($item);
 		
 		// Check that the requested item actually exists in cart,
 		// then remove it from the session array
 		if(isset($_SESSION["cart"][$item])){
 			unset($_SESSION["cart"][$item]);
 		}
+		
+		//subtract this widget's price from the running total
+		$price = $widget["price"];
+		
+		if(isset($_SESSION["total"])){
+			$_SESSION["total"] -= $price;
+		}
+		
+		
 	}
 	elseif(isset($_GET["id"]) && $action == "quantity" && isset($_GET["value"])){
 
 		$item = $_GET["id"];
+		$widget = WidgetManager::getWidget($item);
+		$price = $widget["price"];
+		
 		if(isset($_SESSION["cart"][$item])){
+			if(isset($_SESSION["total"])){
+				//subtract appropriate price for currently stored item quantity
+				$_SESSION["total"] -= $price * $_SESSION["cart"][$item];
+				//add appropriate price for new item quantity
+				$_SESSION["total"] += $price * $_GET["value"];
+			}
 			$_SESSION["cart"][$item] = $_GET["value"];
 		}
+
 	}
 	else {
 		print("Unknown action ".$action);

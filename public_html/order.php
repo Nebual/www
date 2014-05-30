@@ -118,7 +118,13 @@ function order_validate(){
 <body>
 <?php print_navbar("checkout_page"); ?>
 
-<form class="form-horizontal orderform">
+<?php
+	if(isset($_SESSION["total"])){
+	echo "<h1>Total: $" . $_SESSION["total"] . "</h1>";
+}
+?>
+
+<form class="form-horizontal orderform" action="Payment.php" method="post">
 	<fieldset id="billing">
 		<legend>Contact Information</legend>
 		<div class="form-group">
