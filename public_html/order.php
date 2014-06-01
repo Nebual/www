@@ -107,7 +107,6 @@ function order_validate(){
 
 		else{
 			// The validation checks went well
-			alert("Your order has been placed.");
 			return true;
 		}
 }
@@ -204,7 +203,7 @@ function order_validate(){
 		</div>
 	</fieldset>
 
-	<button type="submit" onclick="return order_validate();">Submit</button>
+	<button type="submit" onclick="return order_validate();">Place Order With PayPal</button>
 </form>
 
 </body>
