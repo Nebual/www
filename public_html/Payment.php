@@ -19,6 +19,30 @@ session_start();
 
 $total = strval($_SESSION["total"]);
 
+$_SESSION["contactinfo"] = array();
+$_SESSION["contactinfo"]["phone"] = $_POST["phone"];
+$_SESSION["contactinfo"]["email"] = $_POST["email"];
+$_SESSION["contactinfo"]["b_name"] = $_POST["b_name"];
+$_SESSION["contactinfo"]["b_address"] = $_POST["b_address"];
+$_SESSION["contactinfo"]["b_country"] = $_POST["b_country"];
+$_SESSION["contactinfo"]["b_postalcode"] = $_POST["b_postalcode"];
+$_SESSION["contactinfo"]["b_city"] = $_POST["b_city"];
+$_SESSION["contactinfo"]["b_province"] = $_POST["b_province"];
+if($_POST["shipping_same"]) {
+	$_SESSION["contactinfo"]["s_name"] = $_POST["b_name"];
+	$_SESSION["contactinfo"]["s_address"] = $_POST["b_address"];
+	$_SESSION["contactinfo"]["s_country"] = $_POST["b_country"];
+	$_SESSION["contactinfo"]["s_postalcode"] = $_POST["b_postalcode"];
+	$_SESSION["contactinfo"]["s_city"] = $_POST["b_city"];
+	$_SESSION["contactinfo"]["s_province"] = $_POST["b_province"];
+} else {
+	$_SESSION["contactinfo"]["s_name"] = $_POST["s_name"];
+	$_SESSION["contactinfo"]["s_address"] = $_POST["s_address"];
+	$_SESSION["contactinfo"]["s_country"] = $_POST["s_country"];
+	$_SESSION["contactinfo"]["s_postalcode"] = $_POST["s_postalcode"];
+	$_SESSION["contactinfo"]["s_city"] = $_POST["s_city"];
+	$_SESSION["contactinfo"]["s_province"] = $_POST["s_province"];
+}
 
 // ### Payer
 // A resource representing a Payer that funds a payment
@@ -45,10 +69,9 @@ $transaction->setDescription("Wally's Widget Warehouse - Payment");
 // ### Redirect urls
 // Set the urls that the buyer must be redirected to after 
 // payment approval/ cancellation.
-$baseUrl = getBaseUrl();
 $redirectUrls = new RedirectUrls();
-$redirectUrls->setReturn_url($baseUrl);
-$redirectUrls->setCancel_url($baseUrl);
+$redirectUrls->setReturn_url(getBaseUrl() . "/confirmation.php?success=1");
+$redirectUrls->setCancel_url(getBaseUrl() . "/confirmation.php?cancel=1");
 
 // ### Payment
 // A Payment Resource; create one using
