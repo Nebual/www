@@ -31,9 +31,10 @@ $widgets = getCartContents();
 		<div class='orderform'>
 			Payment successful!<br>
 			Your order is complete.<br>
-			<hr>
 			<?php
-			echo $_SESSION["contactinfo"]["s_name"] . "<br>\n" .  
+			echo "An email has been sent to " . $_SESSION["contactinfo"]["email"] . ".<br>\n" .
+				"<hr>\n" .
+				$_SESSION["contactinfo"]["s_name"] . "<br>\n" .  
 				$_SESSION["contactinfo"]["phone"] . "<br>\n" . 
 				$_SESSION["contactinfo"]["s_address"] . "<br>\n" . 
 				$_SESSION["contactinfo"]["s_postalcode"] . "<br>\n" . 
@@ -59,6 +60,15 @@ $widgets = getCartContents();
 			</table>
 		</div>
 		<?php
+
+		// send the email
+		$message = "Thank you for placing an order with WWW. \r\n\r\nThe following will be shipped 'soon':\r\n";
+		foreach($widgets as $w) {
+			$message .= $w["widgetName"] . " (" . $w["widgetID"] . "): $" . $w["price"] . " x" . $w["quantity"]  . "\r\n";
+		}
+		$headers = "From: WWW Orders <cst2014grp1@gmail.com>\r\nReply-To: cst2014grp1@gmail.com\r\nX-Mailer: PHP/".phpversion();
+		mail($_SESSION["contactinfo"]["email"], "WWW Order Confirmation", $message, $headers);
+		
 		unset($_SESSION["cart"]);
 	}
 	unset($_SESSION['paymentId']);
