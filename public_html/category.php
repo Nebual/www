@@ -28,8 +28,8 @@ Okay so you asked me what sort of products are in <?php echo $catName; ?>. Well,
 <?php
 	foreach ($widgets as $w){
 		echo "<a class='product list-group-item' href='product.php?id=" . $w["widgetID"] . "'>" . $w["widgetName"] . "\n" .
-			"<input class='quantity' type='number' widgetid='".$w['widgetID']."' value='1' onclick='return false;'/>\n" .
 			"<span class='button addtocart' widgetid='".$w["widgetID"]."'>Add To Cart</span>\n" .
+			"<input class='quantity' type='number' widgetid='".$w['widgetID']."' value='1' onclick='return false;'/>\n" .
 			"</a>\n";
 	}
 ?>

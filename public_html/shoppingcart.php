@@ -11,7 +11,7 @@ $widgets = getCartContents();
 <html>
 <head>
 	<title>
-		<?php echo WidgetManager::getSiteName(); ?> - <?php echo $catName; ?>
+		<?php echo WidgetManager::getSiteName(); ?> - Shopping Cart
 	</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="common.css">

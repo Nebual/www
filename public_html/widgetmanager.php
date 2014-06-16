@@ -115,7 +115,7 @@ class WidgetManager {
 			$tname .= ( mt_rand(0,1) ? ($adj." ".$nounplur) : ($noun." ".$noun2) );
 		}
 		//concat some more
-		self::$siteName = mt_rand(0,1) ? $tname : $owner . " Widget World";
+		self::$siteName = mt_rand(0,3) ? $tname : $owner . " Widget World";
 		//title assembled
 		return self::$siteName;
 	}

@@ -50,6 +50,7 @@ a.list-group-item {
 .product {
 	display: inline-block;
 	padding: 10px;
+	width: 380px;
 }
 
 #productinfo {
@@ -104,6 +105,7 @@ a.list-group-item {
 .addtocart {
 	padding: 2px 6px 2px 32px;
 	margin: 0;
+	float: right;
 	
 	background:url('assets/add-to-cart.png') 5px 0px no-repeat, -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
 	background:url('assets/add-to-cart.png') 5px 0px no-repeat, -moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
@@ -122,6 +124,8 @@ a.list-group-item {
 }
 input.quantity {
 	width: 3em;
+	float: right;
+	margin-right: 8px;
 }
 
 input:disabled {

@@ -36,8 +36,8 @@ What I gotta tell you about a product too? Okay well heres what we&apos;ve parse
 	</tr>
 	<tr>	<th></th>
 		<td>
-			<?php echo "<input class='quantity' type='number' widgetid='".$widget['widgetID']."' value='1'/>\n" .
-					"<span class='button addtocart' widgetid='".$widget["widgetID"]."'>Add To Cart</span>\n";?>
+			<?php echo "<span class='button addtocart' widgetid='".$widget["widgetID"]."'>Add To Cart</span>\n" .
+					"<input class='quantity' type='number' widgetid='".$widget['widgetID']."' value='1'/>\n";?>
 		</td>
 	</tr>
 </table>
